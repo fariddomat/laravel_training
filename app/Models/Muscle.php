@@ -10,4 +10,11 @@ class Muscle extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'image'];
+    
+    public function trains()
+    {
+        return $this->hasMany(Train::class);
+    }
+
+
 }

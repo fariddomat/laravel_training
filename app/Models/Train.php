@@ -17,4 +17,24 @@ class Train extends Model
         'goal',
         'days_of_week'
     ];
+
+    public function muscle()
+    {
+        return $this->belongsTo(Muscle::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function media()
+    {
+        return $this->hasMany(TrainMedia::class);
+    }
+
+    public function userTrains()
+    {
+        return $this->hasMany(UserTrain::class);
+    }
 }
