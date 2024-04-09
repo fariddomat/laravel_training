@@ -4,7 +4,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard;
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,11 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('users', Dashboard\UserController::class);
-Route::resource('users.train', Dashboard\UserTrainController::class);
-Route::resource('muscles', Dashboard\MuscleController::class);
-Route::resource('categories', Dashboard\CategoryController::class);
-Route::resource('trains', Dashboard\TrainController::class);
-Route::resource('trains.media', Dashboard\TrainMediaController::class);
+Route::middleware(['role:admin'])->group(function () {
+    // Routes accessible only to admins
 
-require __DIR__.'/auth.php';
+    Route::resource('users', Dashboard\UserController::class);
+    Route::resource('users.train', Dashboard\UserTrainController::class);
+    Route::resource('muscles', Dashboard\MuscleController::class);
+    Route::resource('categories', Dashboard\CategoryController::class);
+    Route::resource('trains', Dashboard\TrainController::class);
+    Route::resource('trains.media', Dashboard\TrainMediaController::class);
+});
+
+require __DIR__ . '/auth.php';

@@ -7,3 +7,9 @@ make Migrations #
 make Controllers #
 
 models Relations #
+
+spatie/laravel-permission #
+
+make Role and Admin Seeder #
+
+make middleware for admin #
