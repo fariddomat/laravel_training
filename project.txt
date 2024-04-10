@@ -13,3 +13,10 @@ spatie/laravel-permission #
 make Role and Admin Seeder #
 
 make middleware for admin #
+
+Make Dashboard Theme #
+
+Make Views
+    Category #
+    Muscle #
+
