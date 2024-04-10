@@ -27,6 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
+
         return view('dashboard.users.create');
     }
 
@@ -49,6 +50,7 @@ class UserController extends Controller
             'weight' => 'nullable|numeric',
             'height' => 'nullable|numeric',
             'health_status' => 'nullable|string',
+            'role' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -56,6 +58,8 @@ class UserController extends Controller
         }
 
         $user = User::create($request->all());
+        $user->syncRoles($request->input('role')); // Assuming 'role' is the name of the select field
+
         return redirect()->route('dashboard.users.index')->with('success', 'User created successfully!');
     }
 
@@ -107,8 +111,10 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        
+
         $user->update($request->all());
+        $user->syncRoles($request->input('role')); // Assuming 'role' is the name of the select field
+
         return redirect()->route('dashboard.users.index')->with('success', 'User updated successfully!');
     }
 

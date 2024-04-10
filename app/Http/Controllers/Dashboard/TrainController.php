@@ -56,7 +56,10 @@ class TrainController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $train = Train::create($request->all());
+        $daysOfWeek = json_encode($request->input('days_of_week'));
+        $request_all=$request->except('days_of_week');
+        $request_all['days_of_week']=$daysOfWeek;
+        $train = Train::create($request_all);
 
         return redirect()->route('dashboard.trains.index')->with('success', 'Train created successfully!');
     }
