@@ -23,4 +23,5 @@ Make Views
     Train #
     Train Media #
     Users Trains #
+    Side Panel #
 
