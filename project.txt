@@ -29,6 +29,9 @@ Make Views
 Dashboard Prefix Routes #
 
 Make Home Theme #
+
+Make Home\SiteController #
+
 Make Views
     Home #
     Categories #
