@@ -28,3 +28,10 @@ Make Views
 
 Dashboard Prefix Routes #
 
+Make Home Theme #
+Make Views
+    Home #
+    Categories #
+    Category show #
+    About #
+    Contact-us #
