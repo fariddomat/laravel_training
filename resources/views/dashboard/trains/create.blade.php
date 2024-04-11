@@ -7,7 +7,7 @@
                     <div class="card-header">Create New Training Plan</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('trains.store') }}">
+                        <form method="POST" action="{{ route('dashboard.trains.store') }}">
                             @csrf
 
                             <div class="form-group row  gx-4 mb-2">

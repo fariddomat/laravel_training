@@ -2,7 +2,7 @@
     <div class="container-fluid py-4 my-6">
         <div class="card card-body my-4 mx-md-4 mt-n6">
             <div class="row gx-4 mb-2">
-                <form action="{{ route('users.update', $user->id) }}" method="POST">
+                <form action="{{ route('dashboard.users.update', $user->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 

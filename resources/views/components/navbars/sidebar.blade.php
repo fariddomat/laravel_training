@@ -26,7 +26,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'users.index' ? ' active bg-gradient-primary' : '' }}"
-                    href="{{ route('users.index') }}">
+                    href="{{ route('dashboard.users.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1.2rem;" class="fas fa-user-circle ps-2 pe-2 text-center"></i>
                     </div>
@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'usersTrain.index' ? ' active bg-gradient-primary' : '' }}"
-                    href="{{ route('usersTrain.index') }}">
+                    href="{{ route('dashboard.usersTrain.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
                     </div>
@@ -48,7 +48,7 @@
 
             <li class="nav-item">
                 <a class="nav-link text-white  {{ Route::currentRouteName() == 'categories.index' ? ' active bg-gradient-primary' : '' }} "
-                    href="{{ route('categories.index') }}">
+                    href="{{ route('dashboard.categories.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">view_in_ar</i>
                     </div>
@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white  {{ Route::currentRouteName() == 'muscles.index' ? ' active bg-gradient-primary' : '' }}"
-                    href="{{ route('muscles.index') }}">
+                    href="{{ route('dashboard.muscles.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -66,7 +66,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white  {{ Route::currentRouteName() == 'trains.index' ? ' active bg-gradient-primary' : '' }}"
-                    href="{{ route('trains.index') }}">
+                    href="{{ route('dashboard.trains.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>

@@ -10,7 +10,7 @@
                             <div class="row bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                                 <h6 class="col-6 text-white text-capitalize ps-3">user trains table</h6>
                                 <div class="col-6 text-end">
-                                    <a class="btn bg-gradient-dark mb-0" href="{{ route('usersTrain.create') }}"><i
+                                    <a class="btn bg-gradient-dark mb-0" href="{{ route('dashboard.usersTrain.create') }}"><i
                                             class="material-icons text-sm">add</i>
                                         &nbsp;&nbsp;Add
                                     </a>
@@ -101,13 +101,13 @@
                                                 </td>
                                                 <td class="align-middle">
                                                     <a rel="tooltip" class="btn btn-success btn-link"
-                                                        href="{{ route('usersTrain.edit', $userTrain) }}" data-original-title=""
+                                                        href="{{ route('dashboard.usersTrain.edit', $userTrain) }}" data-original-title=""
                                                         title="">
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
 
-                                                    <form action="{{ route('usersTrain.destroy', $userTrain) }}" method="POST"
+                                                    <form action="{{ route('dashboard.usersTrain.destroy', $userTrain) }}" method="POST"
                                                         style="  display: unset;">
                                                         @csrf
                                                         @method('delete')

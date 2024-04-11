@@ -2,7 +2,7 @@
     <div class="container-fluid py-4 my-6">
         <div class="card card-body my-4 mx-md-4 mt-n6">
             <div class="row gx-4 mb-2">
-                <form action="{{ route('muscles.update', $muscle) }}" method="POST">
+                <form action="{{ route('dashboard.muscles.update', $muscle) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -25,7 +25,7 @@
                         </div>
 
 
-                       
+
                     </div>
                     <button type="submit" class="btn bg-gradient-dark">Submit</button>
                 </form>

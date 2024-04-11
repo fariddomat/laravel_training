@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['role:admin'])->group(function () {
+Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->group(function () {
     // Routes accessible only to admins
 
     Route::resource('users', Dashboard\UserController::class);

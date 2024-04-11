@@ -7,7 +7,7 @@
                     <div class="card-header">Update Training Plan</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('trains.update', $train) }}">
+                        <form method="POST" action="{{ route('dashboard.trains.update', $train) }}">
                             @csrf
 
                             <div class="form-group row  gx-4 mb-2">
