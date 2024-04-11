@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard;
-
+use App\Http\Controllers\Home;
+use App\Http\Controllers\Home\SiteController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'index'])->name('home');
+Route::get('/categories', [SiteController::class, 'categories'])->name('categories');
+Route::get('/categories/{id}', [SiteController::class, 'category'])->name('categories.show');
+Route::get('/about', [SiteController::class, 'about'])->name('about');
+Route::get('/contact-us', [SiteController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -1,61 +1,5 @@
-<!DOCTYPE html>
-<html lang="zxx">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Gutim Template">
-    <meta name="keywords" content="Gutim, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 1 | Gym</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('home/css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('home/css/owl.carousel.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('home/css/magnific-popup.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('home/css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('home/css/style.css') }}" type="text/css">
-</head>
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container">
-            <div class="logo">
-                <a href="./index.html">
-                    <img src="{{ asset('home/img/logo.png') }}" alt="">
-                </a>
-            </div>
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
-                        <li><a href="./classes.html">Classes</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./gallery.html">All exercises</a></li>
-                       <!--  <li><a href="./contact.html">Contacts</a></li> -->
-                    </ul>
-                </nav>
-                <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
-
-
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
-
+<x-site-layout>
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="{{ asset('home/img/hero-bg.jpg') }}">
         <div class="container">
@@ -80,9 +24,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-pic">
-                        <img src="img/about-pic.jpg" alt="">
+                        <img src="{{asset('home')}}/img/about-pic.jpg" alt="">
                         <a href="https://youtu.be/0SNnCr0-9AQ?si=cSlkup1uaPUwDwGs" class="play-btn video-popup">
-                            <img src="img/play.png" alt="">
+                            <img src="{{asset('home')}}/img/play.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -107,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="services-pic">
-                        <img src="img/services/service-pic.jpg" alt="">
+                        <img src="{{asset('home')}}/img/services/service-pic.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -115,24 +59,24 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="services-item bg-gray">
-                                    <img src="img/services/service-icon-2.png" alt="">
+                                    <img src="{{asset('home')}}/img/services/service-icon-2.png" alt="">
                                     <h4>Bulding Muscles</h4>
                                     <p>can do more for your body than just making you look different or adding strength.</p>
                                 </div>
                                 <div class="services-item bg-gray pd-b">   img/services/service-icon-2.png
-                                    <img src="img/services/service-icon-3.png" alt="">
+                                    <img src="{{asset('home')}}/img/services/service-icon-3.png" alt="">
                                     <h4>Workout</h4>
                                     <p>is considered one of the most important factors in maintaining overall human health and enhancing quality of life.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="services-item">
-                                    <img src="img/services/service-icon-1.png" alt="">
+                                    <img src="{{asset('home')}}/img/services/service-icon-1.png" alt="">
                                     <h4>Yoga</h4>
                                     <p>yoga is considered a healthy and balanced lifestyle that integrates physical, mental, and spiritual aspects, making it effective in achieving overall health and well-being.</p>
                                 </div>
                                 <div class="services-item pd-b">
-                                    <img src="img/services/service-icon-4.png" alt="">
+                                    <img src="{{asset('home')}}/img/services/service-icon-4.png" alt="">
                                     <h4>Weight Loss</h4>
                                     <p>Losing excess weight has many positive effects on overall health and well-being, and it is essential for maintaining good health and preventing diseases.</p>
                                 </div>
@@ -157,13 +101,13 @@
             </div>
             <div class="row classes-slider owl-carousel">
                 <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-1.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-1.jpg">
                         <div class="si-text">
                             <h4>Yoga</h4>
                             <span><i class="fa fa-user"></i> Ryan Knight</span>
                         </div>
                     </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-4.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-4.jpg">
                         <div class="si-text">
                             <h4>Karate</h4>
                             <span><i class="fa fa-user"></i> Kevin McCormick</span>
@@ -171,13 +115,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-2.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-2.jpg">
                         <div class="si-text">
                             <h4>Running</h4>
                             <span><i class="fa fa-user"></i> Randy Rivera</span>
                         </div>
                     </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-5.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-5.jpg">
                         <div class="si-text">
                             <h4>Dance</h4>
                             <span><i class="fa fa-user"></i> Russell Lane</span>
@@ -185,13 +129,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-3.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-3.jpg">
                         <div class="si-text">
                             <h4>Personal Training</h4>
                             <span><i class="fa fa-user"></i> Cole Robertson</span>
                         </div>
                     </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-6.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-6.jpg">
                         <div class="si-text">
                             <h4>Weight Loss</h4>
                             <span><i class="fa fa-user"></i> Ryan Scott</span>
@@ -199,13 +143,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-7.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-7.jpg">
                         <div class="si-text">
                             <h4>Personal Training</h4>
                             <span><i class="fa fa-user"></i> Cole Robertson</span>
                         </div>
                     </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-8.jpg">
+                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-8.jpg">
                         <div class="si-text">
                             <h4>Weight Loss</h4>
                             <span><i class="fa fa-user"></i> Ryan Scott</span>
@@ -217,7 +161,7 @@
     </section>
     <!-- Classes Section End -->
 
-    <!-- Trainer Section Begin
+    <!-- Trainer Section Begin-->
     <section class="trainer-section spad">
         <div class="container">
             <div class="row">
@@ -230,7 +174,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-trainer-item">
-                        <img src="img/trainer/trainer-1.jpg" alt="">
+                        <img src="{{asset('home')}}/img/trainer/trainer-1.jpg" alt="">
                         <div class="trainer-text">
                             <h5>Patrick Cortez</h5>
                             <span>Leader</span>
@@ -247,7 +191,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-trainer-item">
-                        <img src="img/trainer/trainer-2.jpg" alt="">
+                        <img src="{{asset('home')}}/img/trainer/trainer-2.jpg" alt="">
                         <div class="trainer-text">
                             <h5>Gregory Powers</h5>
                             <span>Gym coach</span>
@@ -264,7 +208,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-trainer-item">
-                        <img src="img/trainer/trainer-3.jpg" alt="">
+                        <img src="{{asset('home')}}/img/trainer/trainer-3.jpg" alt="">
                         <div class="trainer-text">
                             <h5>Walter Wagner</h5>
                             <span>Dance trainer</span>
@@ -302,9 +246,9 @@
                                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                             <div class="ti-pic">
-                                <img src="img/testimonial/testimonial-1.jpg" alt="">
+                                <img src="{{asset('home')}}/img/testimonial/testimonial-1.jpg" alt="">
                                 <div class="quote">
-                                    <img src="img/testimonial/quote-left.png" alt="">
+                                    <img src="{{asset('home')}}/img/testimonial/quote-left.png" alt="">
                                 </div>
                             </div>
                             <div class="ti-author">
@@ -315,9 +259,9 @@
                         <div class="testimonial-item">
                             <p>Sarah, an ambitious young woman, discovered an online fitness training platform and embarked on her journey to improve her fitness and achieve her athletic goals. By setting goals and committing to training, her fitness improved and she overcame challenges to succeed. Through online fitness training, Sarah gained confidence, resilience, and perseverance. </p>
                             <div class="ti-pic">
-                                <img src="img/testimonial/testimonial-1.jpg" alt="">
+                                <img src="{{asset('home')}}/img/testimonial/testimonial-1.jpg" alt="">
                                 <div class="quote">
-                                    <img src="img/testimonial/quote-left.png" alt="">
+                                    <img src="{{asset('home')}}/img/testimonial/quote-left.png" alt="">
                                 </div>
                             </div>
                             <div class="ti-author">
@@ -333,7 +277,7 @@
     <!-- Testimonial Section End -->
 
     <!-- Banner Section Begin -->
-    <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">
+    <section class="banner-section set-bg" data-setbg="{{asset('home')}}/img/banner-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -345,112 +289,14 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img src="img/banner-person.png" alt="">
+                    <img src="{{asset('home')}}/img/banner-person.png" alt="">
                 </div>
             </div>
         </div>
     </section>
     <!-- Banner Section End -->
 
-    <!-- Membership Section Begin
-    <section class="membership-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>MEMBERSHIP PLANS</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="membership-item">
-                        <div class="mi-title">
-                            <h4>Basic</h4>
-                            <div class="triangle"></div>
-                        </div>
-                        <h2 class="mi-price">$17<span>/01 mo</span></h2>
-                        <ul>
-                            <li>
-                                <p>Duration</p>
-                                <span>12 months</span>
-                            </li>
-                            <li>
-                                <p>Personal trainer</p>
-                                <span>00 person</span>
-                            </li>
-                            <li>
-                                <p>Amount of people</p>
-                                <span>01 person</span>
-                            </li>
-                            <li>
-                                <p>Number of visits</p>
-                                <span>Unlimited</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="primary-btn membership-btn">Start Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="membership-item">
-                        <div class="mi-title">
-                            <h4>Standard</h4>
-                            <div class="triangle"></div>
-                        </div>
-                        <h2 class="mi-price">$57<span>/01 mo</span></h2>
-                        <ul>
-                            <li>
-                                <p>Duration</p>
-                                <span>12 months</span>
-                            </li>
-                            <li>
-                                <p>Personal trainer</p>
-                                <span>01 person</span>
-                            </li>
-                            <li>
-                                <p>Amount of people</p>
-                                <span>01 person</span>
-                            </li>
-                            <li>
-                                <p>Number of visits</p>
-                                <span>Unlimited</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="primary-btn membership-btn">Start Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="membership-item">
-                        <div class="mi-title">
-                            <h4>Premium</h4>
-                            <div class="triangle"></div>
-                        </div>
-                        <h2 class="mi-price">$98<span>/01 mo</span></h2>
-                        <ul>
-                            <li>
-                                <p>Duration</p>
-                                <span>12 months</span>
-                            </li>
-                            <li>
-                                <p>Personal trainer</p>
-                                <span>01 person</span>
-                            </li>
-                            <li>
-                                <p>Amount of people</p>
-                                <span>01 person</span>
-                            </li>
-                            <li>
-                                <p>Number of visits</p>
-                                <span>Unlimited</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="primary-btn membership-btn">Start Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!-- Membership Section End -->
+
 
     <!-- Register Section Begin -->
     <section class="register-section spad">
@@ -487,7 +333,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="register-pic">
-                        <img src="img/register-pic.jpg" alt="">
+                        <img src="{{asset('home')}}/img/register-pic.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -508,7 +354,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
-                        <img src="img/blog/blog-1.jpg" alt="">
+                        <img src="{{asset('home')}}/img/blog/blog-1.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">February 17, 2019</div>
                             <a href="#" class="tag">#Gym</a>
@@ -518,7 +364,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
-                        <img src="img/blog/blog-2.jpg" alt="">
+                        <img src="{{asset('home')}}/img/blog/blog-2.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">February 17, 2019</div>
                             <a href="#" class="tag">#Sport</a>
@@ -528,7 +374,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
-                        <img src="img/blog/blog-3.jpg" alt="">
+                        <img src="{{asset('home')}}/img/blog/blog-3.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">February 17, 2019</div>
                             <a href="#" class="tag">#Body</a>
@@ -540,93 +386,4 @@
         </div>
     </section>
     <!-- Latest Blog Section End -->
-
-    <!-- Footer Banner Section Begin
-    <section class="footer-banner">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="footer-banner-item set-bg" data-setbg="img/footer-banner/footer-banner-1.jpg">
-                        <span>New member</span>
-                        <h2>7 days for free</h2>
-                        <p>Complete the training sessions with us, surely you will be happy</p>
-                        <a href="#" class="primary-btn">Get Started</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="footer-banner-item set-bg" data-setbg="img/footer-banner/footer-banner-2.jpg">
-                        <span>contact us</span>
-                        <h2>09 746 204</h2>
-                        <p>If you trust us on your journey they dark sex does not disappoint you!</p>
-                        <a href="#" class="primary-btn">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!-- Footer Banner Section End -->
-
-    <!-- Footer Section Begin
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="contact-option">
-                        <span>Phone</span>
-                        <p>(123) 118 9999 - (123) 118 9999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-option">
-                        <span>Address</span>
-                        <p>72 Kangnam, 45 Opal Point Suite 391</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-option">
-                        <span>Email</span>
-                        <p>contactcompany@Gutim.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="subscribe-option set-bg" data-setbg="img/footer-signup.jpg">
-                <div class="so-text">
-                    <h4>Subscribe To Our Mailing List</h4>
-                    <p>Sign up to receive the latest information </p>
-                </div>
-                <form action="#" class="subscribe-form">
-                    <input type="text" placeholder="Enter Your Mail">
-                    <button type="submit"><i class="fa fa-send"></i></button>
-                </form>
-            </div>
-            <div class="copyright-text">
-                <ul>
-                    <li><a href="#">Term&Use</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-                <p>&copy;<p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
-                <div class="footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <script src="{{ asset('home/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('home/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('home/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('home/js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('home/js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('home/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('home/js/main.js') }}"></script>
-</body>
-
-</html>
+</x-site-layout>
