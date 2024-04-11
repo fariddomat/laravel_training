@@ -19,6 +19,8 @@ Make Dashboard Theme #
 Make Views
     Category #
     Muscle #
-    Users #
+    User #
     Train #
+    Train Media #
+    Users Trains #
 

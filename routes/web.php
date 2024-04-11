@@ -33,11 +33,11 @@ Route::middleware(['role:admin'])->group(function () {
     // Routes accessible only to admins
 
     Route::resource('users', Dashboard\UserController::class);
-    Route::resource('users.train', Dashboard\UserTrainController::class);
+    Route::resource('usersTrain', Dashboard\UserTrainController::class);
     Route::resource('muscles', Dashboard\MuscleController::class);
     Route::resource('categories', Dashboard\CategoryController::class);
     Route::resource('trains', Dashboard\TrainController::class);
-    Route::resource('trains.media', Dashboard\TrainMediaController::class);
+    Route::resource('trains.medias', Dashboard\TrainMediaController::class);
 });
 
 require __DIR__ . '/auth.php';

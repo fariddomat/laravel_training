@@ -18,9 +18,15 @@ class TrainMediaController extends Controller
      */
     public function index(Train $train)
     {
-        $media = $train->media;
-        return view('dashboard.trains.media.index', compact('train', 'media'));
+        $medias = $train->media;
+        return view('dashboard.trains.media.index', compact('train', 'medias'));
     }
+
+    public function create(Train $train)
+    {
+        return view('dashboard.trains.media.create', compact('train'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -32,7 +38,7 @@ class TrainMediaController extends Controller
     public function store(Request $request, Train $train)
     {
         $validator = Validator::make($request->all(), [
-            'media' => 'required|array',
+            'media' => 'required',
             'media.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

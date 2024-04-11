@@ -20,7 +20,7 @@ class UserTrainController extends Controller
     public function index()
     {
         $userTrains = UserTrain::with(['user', 'train'])->paginate(10);
-        return view('dashboard.user_trains.index', compact('userTrains'));
+        return view('dashboard.users.trains.index', compact('userTrains'));
     }
 
     /**
@@ -32,7 +32,7 @@ class UserTrainController extends Controller
     {
         $users = User::all();
         $trains = Train::all();
-        return view('dashboard.user_trains.create', compact('users', 'trains'));
+        return view('dashboard.users.trains.create', compact('users', 'trains'));
     }
 
     /**
@@ -58,7 +58,7 @@ class UserTrainController extends Controller
 
         $userTrain = UserTrain::create($request->all());
 
-        return redirect()->route('dashboard.user_trains.index')->with('success', 'User Train record created successfully!');
+        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record created successfully!');
     }
 
     /**
@@ -69,7 +69,7 @@ class UserTrainController extends Controller
      */
     public function show(UserTrain $userTrain)
     {
-        return view('dashboard.user_trains.show', compact('userTrain'));
+        return view('dashboard.users.trains.show', compact('userTrain'));
     }
 
     /**
@@ -78,11 +78,11 @@ class UserTrainController extends Controller
      * @param  \App\Models\UserTrain  $userTrain
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserTrain $userTrain)
+    public function edit(UserTrain $usersTrain)
     {
         $users = User::all();
         $trains = Train::all();
-        return view('dashboard.user_trains.edit', compact('userTrain', 'users', 'trains'));
+        return view('dashboard.users.trains.edit', compact('usersTrain', 'users', 'trains'));
     }
 
     /**
@@ -92,7 +92,7 @@ class UserTrainController extends Controller
      * @param  \App\Models\UserTrain  $userTrain
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserTrain $userTrain)
+    public function update(Request $request, UserTrain $usersTrain)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
@@ -107,9 +107,9 @@ class UserTrainController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $userTrain->update($request->all());
+        $usersTrain->update($request->all());
 
-        return redirect()->route('dashboard.user_trains.index')->with('success', 'User Train record updated successfully!');
+        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record updated successfully!');
     }
 
     /**
@@ -121,6 +121,6 @@ class UserTrainController extends Controller
     public function destroy(UserTrain $userTrain)
     {
         $userTrain->delete();
-        return redirect()->route('dashboard.user_trains.index')->with('success', 'User Train record deleted successfully!');
+        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record deleted successfully!');
     }
 }
