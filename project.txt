@@ -25,3 +25,6 @@ Make Views
     Users Trains #
     Side Panel #
 
+
+Dashboard Prefix Routes
+
