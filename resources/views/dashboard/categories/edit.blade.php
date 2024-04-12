@@ -2,13 +2,14 @@
     <div class="container-fluid py-4 my-6">
         <div class="card card-body my-4 mx-md-4 mt-n6">
             <div class="row gx-4 mb-2">
-                <form action="{{ route('dashboard.categories.store') }}" method="POST">
+                <form action="{{ route('dashboard.categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="row">
                         <div class="mb-3 col-md-6">
 
                             <label class="form-label">Name</label>
-                            <input name="name" type="text" class="form-control border border-2 p-2" value="{{ old('name') }}">
+                            <input name="name" type="text" class="form-control border border-2 p-2" value="{{ old('name', $category->name) }}">
                             @error('name')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
@@ -28,7 +29,7 @@
 
                             <label for="floatingTextarea2">Description</label>
                             <textarea name="description" class="form-control border border-2 p-2"
-                                placeholder=" Say something about" id="floatingTextarea2" rows="4" cols="50">{{ old('description') }}</textarea>
+                                placeholder=" Say something about" id="floatingTextarea2" rows="4" cols="50">{{ old('description', $category->description) }}</textarea>
                             @error('description')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror

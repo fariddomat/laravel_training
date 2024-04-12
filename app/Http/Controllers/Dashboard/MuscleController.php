@@ -2,6 +2,7 @@
 // app/Http/Controllers/Dashboard/MuscleController.php
 namespace App\Http\Controllers\Dashboard;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Muscle;
 use Illuminate\Http\Request;
@@ -48,7 +49,14 @@ class MuscleController extends Controller
         }
 
         // Handle image upload (if needed)
-        // ...
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/muscles'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, null, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
+        }
 
         $muscle = Muscle::create([
             'name' => $request->name,
@@ -99,7 +107,14 @@ class MuscleController extends Controller
         }
 
         // Handle image upload and deletion of old image (if needed)
-        // ...
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/muscles'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, null, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
+        }
 
         $muscle->update([
             'name' => $request->name,

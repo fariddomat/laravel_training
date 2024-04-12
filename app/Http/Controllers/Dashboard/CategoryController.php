@@ -2,6 +2,7 @@
 // app/Http/Controllers/Dashboard/CategoryController.php
 namespace App\Http\Controllers\Dashboard;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -49,7 +50,14 @@ class CategoryController extends Controller
         }
 
         // Handle image upload (if needed)
-        // ...
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/categories'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, 400, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
+        }
 
         $category = Category::create([
             'name' => $request->name,
@@ -99,6 +107,14 @@ class CategoryController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/categories'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, 400, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
         }
 
         // Handle image upload and deletion of old image (if needed)

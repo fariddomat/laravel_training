@@ -32,8 +32,14 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
-            'throw' => false,
+            'root' => public_path(),
+        ],
+
+        'public_images' => [
+            'driver' => 'local',
+            'root' => public_path(), // Replace with your actual public directory path
+            'url' => env('APP_URL') , // Adjust the URL prefix if needed
+            'visibility' => 'public',
         ],
 
         'public' => [
