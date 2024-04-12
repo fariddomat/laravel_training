@@ -6,16 +6,25 @@
                     @csrf
                     <div class="row">
                         <div class="mb-3 col-md-6">
-
                             <label class="form-label">Name</label>
-                            <input name="name" type="text" class="form-control border border-2 p-2" value="{{ old('name') }}">
+                            <input name="name" type="text" class="form-control border border-2 p-2"
+                                value="{{ old('name') }}">
                             @error('name')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>
-
                         <div class="mb-3 col-md-6">
-
+                            <label class="form-label">Coach</label>
+                            <select name="role_id" class="form-control  border border-2 p-2">
+                                @foreach (App\Models\User::role('coach')->get() as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('role_id')
+                                <p class='text-danger inputerror'>{{ $message }} </p>
+                            @enderror
+                        </div>
+                        <div class="mb-3 col-md-12">
                             <label class="form-label">Image</label>
                             <input name="image" type="file" class="form-control border border-2 p-2">
                             @error('image')
@@ -27,8 +36,8 @@
                         <div class="mb-3 col-md-12">
 
                             <label for="floatingTextarea2">Description</label>
-                            <textarea name="description" class="form-control border border-2 p-2"
-                                placeholder=" Say something about" id="floatingTextarea2" rows="4" cols="50">{{ old('description') }}</textarea>
+                            <textarea name="description" class="form-control border border-2 p-2" placeholder=" Say something about"
+                                id="floatingTextarea2" rows="4" cols="50">{{ old('description') }}</textarea>
                             @error('description')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror

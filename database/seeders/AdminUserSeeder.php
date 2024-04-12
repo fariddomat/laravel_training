@@ -19,7 +19,22 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('password'), // Replace with a secure password
             // ... other user attributes ...
         ]);
-
         $user->assignRole('admin');
+
+        $user = User::create([
+            'name' => 'Coach',
+            'email' => 'coach@training.com',
+            'password' => bcrypt('password'), // Replace with a secure password
+            // ... other user attributes ...
+        ]);
+        $user->assignRole('coach');
+
+        $user = User::create([
+            'name' => 'user',
+            'email' => 'user@training.com',
+            'password' => bcrypt('password'), // Replace with a secure password
+            // ... other user attributes ...
+        ]);
+        $user->assignRole('trainee');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -41,6 +42,7 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:categories',
+            'user_id' => 'required',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -61,6 +63,7 @@ class CategoryController extends Controller
 
         $category = Category::create([
             'name' => $request->name,
+            'user_id' => $request->user_id,
             'description' => $request->description,
             'image' => $imagePath ?? null, // Store image path or null
         ]);
@@ -101,6 +104,7 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
+            'user_id' => 'required',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -122,6 +126,7 @@ class CategoryController extends Controller
 
         $category->update([
             'name' => $request->name,
+            'user_id' => $request->user_id,
             'description' => $request->description,
             'image' => $imagePath ?? $category->image, // Update image path or keep old one
         ]);
