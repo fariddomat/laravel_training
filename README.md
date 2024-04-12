@@ -68,4 +68,9 @@ Add Datatable #
 
 musclesmedia #
 
+HomePages
+    Welcome
+        introl
+        categories
+        coaches
 

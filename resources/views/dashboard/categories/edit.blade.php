@@ -16,14 +16,14 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Coach</label>
-                            <select name="role_id" class="form-control  border border-2 p-2">
+                            <select name="user_id" class="form-control  border border-2 p-2">
                                 @foreach (App\Models\User::role('coach')->get() as $user)
                                     <option value="{{ $user->id }}" @if ($category->user_id ==$user->id)
                                         selected
                                     @endif>{{ $user->name }}</option>
                                 @endforeach
                             </select>
-                            @error('role_id')
+                            @error('user_id')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>

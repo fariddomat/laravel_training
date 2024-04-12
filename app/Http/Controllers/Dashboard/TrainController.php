@@ -49,17 +49,13 @@ class TrainController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'goal' => 'required|string',
-            'days_of_week' => 'required|array',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $daysOfWeek = json_encode($request->input('days_of_week'));
-        $request_all=$request->except('days_of_week');
-        $request_all['days_of_week']=$daysOfWeek;
-        $train = Train::create($request_all);
+        $train = Train::create($request->all());
 
         return redirect()->route('dashboard.trains.index')->with('success', 'Train created successfully!');
     }
@@ -104,7 +100,6 @@ class TrainController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'goal' => 'required|string',
-            'days_of_week' => 'required|array',
         ]);
 
         if ($validator->fails()) {

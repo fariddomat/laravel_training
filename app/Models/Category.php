@@ -20,4 +20,10 @@ class Category extends Model
     {
         return $this->hasMany(Train::class);
     }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
 }

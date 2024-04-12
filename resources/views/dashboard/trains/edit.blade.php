@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('dashboard.trains.update', $train) }}">
                             @csrf
-
+                            @method('put')
                             <div class="form-group row  gx-4 mb-2">
                                 <label for="muscle_id" class="col-md-4 col-form-label text-md-right">Muscle Group</label>
 
@@ -101,31 +101,6 @@
                                     <input id="goal" type="text" class="form-control border border-2 p-2 @error('goal') is-invalid @enderror" name="goal" value="{{ old('goal', $train->goal) }}" required>
 
                                     @error('goal')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="days_of_week" class="col-md-4 col-form-label text-md-right">Days of the Week</label>
-
-                                <div class="mb-3 col-md-6">
-                                    @php
-                                    $selectedDays = json_decode($train->days_of_week, true); // Decode JSON data
-                                @endphp
-
-                                    @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as $day)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="days_of_week[]" id="day_{{ $loop->index }}" value="{{ $day }}"  @if(in_array($day, $selectedDays)) checked @endif>
-                                            <label class="form-check-label" for="day_{{ $loop->index }}">
-                                                {{ $day }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-
-                                    @error('days_of_week')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
