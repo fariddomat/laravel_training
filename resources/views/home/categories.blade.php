@@ -2,7 +2,7 @@
 
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{asset('home')}}/img/breadcrumb/classes-breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{{ asset('home') }}/img/breadcrumb/classes-breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -19,6 +19,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
+    @guest
     <!-- Register Section Begin -->
     <section class="register-section classes-page spad">
         <div class="container">
@@ -55,7 +56,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="register-pic">
-                            <img src="{{asset('home')}}/img/register-pic.jpg" alt="">
+                            <img src="{{ asset('home') }}/img/register-pic.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -64,93 +65,34 @@
     </section>
     <!-- Register Section End -->
 
-    <!-- Classes Section Begin -->
-    <section class="classes-section classes-page spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>UNLIMITED CLASSES</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-1.jpg">
-                        <div class="si-text">
-                            <h4>Yoga</h4>
-                            <span><i class="fa fa-user"></i> Ryan Knight</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-4.jpg">
-                        <div class="si-text">
-                            <h4>Karate</h4>
-                            <span><i class="fa fa-user"></i> Kevin McCormick</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-2.jpg">
-                        <div class="si-text">
-                            <h4>Running</h4>
-                            <span><i class="fa fa-user"></i> Randy Rivera</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-5.jpg">
-                        <div class="si-text">
-                            <h4>Dance</h4>
-                            <span><i class="fa fa-user"></i> Russell Lane</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-3.jpg">
-                        <div class="si-text">
-                            <h4>Personal Training</h4>
-                            <span><i class="fa fa-user"></i> Cole Robertson</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-6.jpg">
-                        <div class="si-text">
-                            <h4>Weight Loss</h4>
-                            <span><i class="fa fa-user"></i> Ryan Scott</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-7.jpg">
-                        <div class="si-text">
-                            <h4>Box</h4>
-                            <span><i class="fa fa-user"></i> Chester Bowen</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-8.jpg">
-                        <div class="si-text">
-                            <h4>Cardio</h4>
-                            <span><i class="fa fa-user"></i> Jorge Fernandez</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-class-item set-bg" data-setbg="{{asset('home')}}/img/classes/classes-8.jpg">
-                        <div class="si-text">
-                            <h4>Crossfit</h4>
-                            <span><i class="fa fa-user"></i> Chester Bowen</span>
-                        </div>
-                    </div>
+    @endguest
+
+  <!-- Classes Section Begin -->
+  <section class="classes-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>UNLIMITED Categories</h2>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Classes Section End -->
+        <div class="row classes-slider owl-carousel">
+            @foreach ($categories as $category)
+                <div class="col-lg-4">
+                    <div class="single-class-item set-bg" data-setbg="{{ asset($category->image) }}">
+                        <div class="si-text">
+                            <h4>{{ $category->name }}</h4>
+                            <span><i class="fa fa-user"></i> {{ $category->user->name }}</span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+<!-- Classes Section End -->
 
     <!-- Classes Timetable Section Begin -->
     <section class="classes-timetable spad">

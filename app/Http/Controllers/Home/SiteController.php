@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
     public function index() {
-
-        return view('welcome');
+        $categories = Category::with('user')->get();
+        $coaches = User::role('coach')->get();
+        return view('welcome', compact('categories', 'coaches'));
     }
 
     public function categories(){
