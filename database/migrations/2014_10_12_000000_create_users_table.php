@@ -24,6 +24,8 @@ return new class extends Migration
             $table->decimal('weight')->nullable();
             $table->decimal('height')->nullable();
             $table->text('health_status')->nullable();
+            $table->string('image')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

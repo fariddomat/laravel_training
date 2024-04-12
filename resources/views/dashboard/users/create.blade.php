@@ -2,7 +2,7 @@
     <div class="container-fluid py-4 my-6">
         <div class="card card-body my-4 mx-md-4 mt-n6">
             <div class="row gx-4 mb-2">
-                <form action="{{ route('dashboard.users.store') }}" method="POST">
+                <form action="{{ route('dashboard.users.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="mb-3 col-md-6">
@@ -67,6 +67,15 @@
                             <label class="form-label">Height</label>
                             <input name="height" type="number" step="0.01" class="form-control border border-2 p-2" value="{{ old('height') }}">
                             @error('height')
+                                <p class='text-danger inputerror'>{{ $message }} </p>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+
+                            <label class="form-label">Image</label>
+                            <input name="image" type="file" class="form-control border border-2 p-2">
+                            @error('image')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>

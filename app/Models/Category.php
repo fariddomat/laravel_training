@@ -9,10 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'image'];
-    
+    protected $fillable = ['user_id', 'name', 'description', 'image'];
+
+    // coach
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function trains()
-{
-    return $this->hasMany(Train::class);
-}
+    {
+        return $this->hasMany(Train::class);
+    }
 }

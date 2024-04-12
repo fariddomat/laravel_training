@@ -2,6 +2,7 @@
 // app/Http/Controllers/Dashboard/UserController.php
 namespace App\Http\Controllers\Dashboard;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,7 +58,17 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user = User::create($request->all());
+        $user = User::create($request->except('image'));
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/users'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, 400, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
+            $user->image= $imagePath;
+            $user->save();
+        }
         $user->syncRoles($request->input('role')); // Assuming 'role' is the name of the select field
 
         return redirect()->route('dashboard.users.index')->with('success', 'User created successfully!');
@@ -112,7 +123,17 @@ class UserController extends Controller
         }
 
 
-        $user->update($request->all());
+        $user->update($request->except('image'));
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $directory = '/uploads/users'; // Replace with the desired directory
+            $helper = new ImageHelper;
+            $fullPath = $helper->storeImageInPublicDirectory($image, $directory, 400, 400);
+            // Save the full path with name in the database
+            $imagePath = $fullPath;
+            $user->image= $imagePath;
+            $user->save();
+        }
         $user->syncRoles($request->input('role')); // Assuming 'role' is the name of the select field
 
         return redirect()->route('dashboard.users.index')->with('success', 'User updated successfully!');

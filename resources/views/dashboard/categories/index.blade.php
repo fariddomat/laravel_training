@@ -10,7 +10,8 @@
                             <div class="row bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                                 <h6 class="col-6 text-white text-capitalize ps-3">Categories table</h6>
                                 <div class="col-6 text-end">
-                                    <a class="btn bg-gradient-dark mb-0" href="{{ route('dashboard.categories.create') }}"><i
+                                    <a class="btn bg-gradient-dark mb-0"
+                                        href="{{ route('dashboard.categories.create') }}"><i
                                             class="material-icons text-sm">add</i>
                                         &nbsp;&nbsp;Add
                                     </a>
@@ -28,8 +29,11 @@
                                                 ID</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Coach</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Image</th>
-                                                <th
+                                            <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 name</th>
 
@@ -37,13 +41,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $index=>$category)
+                                        @foreach ($categories as $index => $category)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
 
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $index+1 }}</h6>
+                                                            <h6 class="mb-0 text-sm">{{ $index + 1 }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-capitalize">{{ $category->user->name }}</h6>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -51,7 +63,8 @@
                                                     <div class="d-flex px-2 py-1">
                                                         <div>
                                                             <img src="{{ asset($category->image) }}"
-                                                                class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                                                class="avatar avatar-sm me-3 border-radius-lg"
+                                                                alt="user1">
                                                         </div>
 
                                                     </div>
@@ -61,25 +74,28 @@
                                                     <div class="d-flex px-2 py-1">
 
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $category->name }}</h6>
+                                                            <h6 class="mb-0 text-capitalize">{{ $category->name }}</h6>
                                                         </div>
                                                     </div>
                                                 </td>
 
                                                 <td class="align-middle">
-                                                    <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('dashboard.categories.edit', $category) }}"
+                                                    <a rel="tooltip" class="btn btn-success btn-link"
+                                                        href="{{ route('dashboard.categories.edit', $category) }}"
                                                         data-original-title="" title="">
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
 
-                                                    <form action="{{ route('dashboard.categories.destroy', $category) }}" method="POST" style="  display: unset;">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-danger btn-link">
-                                                        <i class="material-icons">close</i>
-                                                        <div class="ripple-container"></div>
-                                                    </button>
+                                                    <form
+                                                        action="{{ route('dashboard.categories.destroy', $category) }}"
+                                                        method="POST" style="  display: unset;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger btn-link">
+                                                            <i class="material-icons">close</i>
+                                                            <div class="ripple-container"></div>
+                                                        </button>
                                                     </form>
                                                 </td>
                                             </tr>

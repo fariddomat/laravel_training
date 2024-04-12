@@ -29,6 +29,7 @@ class User extends Authenticatable
         'weight',
         'height',
         'health_status',
+        'image'
     ];
 
     /**
@@ -51,7 +52,13 @@ class User extends Authenticatable
     ];
 
     public function userTrains()
-{
-    return $this->hasMany(UserTrain::class);
-}
+    {
+        return $this->hasMany(UserTrain::class);
+    }
+
+    // user is coach
+    public function categories(){
+        return $this->hasMany(Category::class);
+    }
+
 }
