@@ -2,11 +2,23 @@ Laravel Training Project
 
 Project Steps:
 
-make Models #
+make Models 
+    User #
+    Category #
+    Muscle #
+    Train #
+    TrainMedia #
+    UserTrain #
 
 make Migrations #
 
-make Controllers #
+make Dashboard Controllers (resources)
+    UserController #
+    CategoryController #
+    MuscleController #
+    TrainController #
+    TrainMediaController #
+    UserTrainController #
 
 models Relations #
 
@@ -14,21 +26,23 @@ spatie/laravel-permission #
 
 make Role and Admin Seeder #
 
-make middleware for admin #
+Routes:
+    Dashboard Prefix Routes #
+    make middleware for Dashboard #
+    Add resource routes #
 
 Make Dashboard Theme #
 
 Make Views
-    Category #
-    Muscle #
-    User #
-    Train #
-    Train Media #
-    Users Trains #
+    CRUD (create,read, update, delete):
+        User #
+        Category #
+        Muscle #
+        Train #
+        Train Media #
+        Users Trains #
     Side Panel #
-
-
-Dashboard Prefix Routes #
+    Dashboard Home #
 
 Make Home Theme #
 
