@@ -38,8 +38,8 @@ class TrainMediaController extends Controller
     public function store(Request $request, Train $train)
     {
         $validator = Validator::make($request->all(), [
-            'media' => 'required',
-            'media.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'media' => 'required|array',
+            'media.*' => 'required|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi,wmv|max:10240', // Increased max size and added video mime types
         ]);
 
         if ($validator->fails()) {
@@ -48,15 +48,22 @@ class TrainMediaController extends Controller
 
         // Handle media uploads (loop through each media file)
         foreach ($request->file('media') as $mediaFile) {
-            // ... (upload logic, store path in $mediaPath)
+            // 1. Generate unique filename
+            $fileName = uniqid() . '_' . time() . '.' . $mediaFile->getClientOriginalExtension();
+
+            // 2. Determine storage location (consider using Laravel's storage system)
+            $storagePath = 'public/uploads/train_media';
+
+            // 3. Store the media file
+            $mediaPath = $mediaFile->storeAs($storagePath, $fileName);
 
             TrainMedia::create([
                 'train_id' => $train->id,
-                'media_path' => '$mediaPath',
+                'media_path' => $mediaPath,
             ]);
         }
 
-        return redirect()->route('dashboard.trains.media.index', $train)->with('success', 'Media uploaded successfully!');
+        return redirect()->route('dashboard.trains.medias.index', $train)->with('success', 'Media uploaded successfully!');
     }
 
     /**
@@ -116,6 +123,6 @@ class TrainMediaController extends Controller
         // ...
 
         $media->delete();
-        return redirect()->route('dashboard.trains.media.index', $train)->with('success', 'Media deleted successfully!');
+        return redirect()->route('dashboard.trains.medias.index', $train)->with('success', 'Media deleted successfully!');
     }
 }

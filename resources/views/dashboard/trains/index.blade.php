@@ -116,6 +116,12 @@
                                                 </td>
 
                                                 <td class="align-middle">
+                                                    <a rel="tooltip" class="btn btn-primary btn-link"
+                                                        href="{{ route('dashboard.trains.medias.index', $train) }}" data-original-title=""
+                                                        title="">
+                                                        <i class="material-icons">camera</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>
                                                     <a rel="tooltip" class="btn btn-success btn-link"
                                                         href="{{ route('dashboard.trains.edit', $train) }}" data-original-title=""
                                                         title="">
