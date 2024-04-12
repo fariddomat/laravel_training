@@ -1,3 +1,30 @@
+@section('styles')
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.0.3/b-3.0.1/r-3.0.1/rr-1.5.0/datatables.min.css" rel="stylesheet">
+    <style>
+        div.dt-container div.dt-search input {
+            border: 1px solid #dee2e6 !important;
+        }
+    </style>
+@endsection
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/b-3.0.1/r-3.0.1/rr-1.5.0/datatables.min.js" defer></script>
+    <script>
+        $(document).ready(function() {
+            var servicesTable = $("#Table").DataTable({
+                searching: true,
+                paging: true,
+                info: false,
+                columnDefs: [{
+                    orderable: false,
+                    targets: [3]
+                }],
+            });
+        });
+    </script>
+    <script></script>
+@endsection
 <x-app-layout>
     <div class="">
         <!-- Navbar -->
@@ -20,7 +47,7 @@
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table id="Table" class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
                                             <th
