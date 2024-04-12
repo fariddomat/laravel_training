@@ -14,7 +14,8 @@ class UserTrain extends Model
         'date',
         'time',
         'duration',
-        'notes'
+        'notes',
+        'status'
     ];
 
     public function user()

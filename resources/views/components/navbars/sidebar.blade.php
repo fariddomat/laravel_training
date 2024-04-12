@@ -93,7 +93,7 @@
 
         <div class="mx-3">
             <a class="btn bg-gradient-primary w-100"
-                href="" target="_blank" type="button">Home Page</a>
+                href="{{ route('home') }}" target="_blank" type="button">Home Page</a>
         </div>
     </div>
 </aside>

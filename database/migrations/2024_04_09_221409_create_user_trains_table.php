@@ -19,11 +19,12 @@ return new class extends Migration
             $table->time('time');
             $table->integer('duration')->nullable();
             $table->text('notes')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('train_id')->references('id')->on('trains')->onDelete('cascade');
-        
+
         });
     }
 
