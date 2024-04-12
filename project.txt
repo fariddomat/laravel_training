@@ -38,3 +38,9 @@ Make Views
     Category show #
     About #
     Contact-us #
+
+Add ImageHelper
+    Intervention\Image #
+    fixe filesystems.php #
+    call methods from ImageHelper in controllers #
+
