@@ -83,6 +83,7 @@ HomePages
         login #
         profile #
         appointment #
+        suggestedTrains #
 
 Routes Roles #
 
