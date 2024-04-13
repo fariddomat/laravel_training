@@ -47,10 +47,10 @@
                     </ul>
                 </nav>
                 @guest
-                    <a href="" class="primary-btn signup-btn">Sign Up Today</a>
+                    <a href="{{ route('register') }}" class="primary-btn signup-btn">Sign Up Today</a>
                 @else
                     @if (auth()->user()->hasRole('trainee'))
-                    <a href="#" class="primary-btn signup-btn">Profile</a>
+                    <a href="{{ route('profile.edit') }}" class="primary-btn signup-btn">Profile</a>
                     @else
                     <a href="{{ route('dashboard') }}" class="primary-btn signup-btn">Dashboard</a>
                     @endif

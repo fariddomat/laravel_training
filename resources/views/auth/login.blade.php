@@ -1,47 +1,71 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<x-site-layout>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{{ asset('home') }}/img/breadcrumb/classes-breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Login</h2>
+                        <div class="breadcrumb-option">
+                            <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a>
+                            <span>Login</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- Breadcrumb Section End -->
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- Register Section Begin -->
+    <section class="register-section classes-page spad">
+        <div class="container">
+            <div class="classes-page-text">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="register-text">
+                            <div class="section-title">
+                                <h2>Register Now</h2>
+                            </div>
+                            <form action="{{ route('login') }}" method="POST" class="register-form">
+                                @csrf
+                                <div class="row">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                                    <!-- Email Address -->
+                                    <div class="col-lg-12">
+                                        <x-input-label for="email" :value="__('Email')" />
+                                        <x-text-input id="email" class="block mt-1 w-full" type="email"
+                                            name="email" :value="old('email')" required autofocus
+                                            autocomplete="username" />
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    <!-- Password -->
+                                    <div class="col-lg-12">
+                                        <x-input-label for="password" :value="__('Password')" />
+
+                                        <x-text-input id="password" class="block mt-1 w-full" type="password"
+                                            name="password" required autocomplete="current-password" />
+
+                                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    </div>
+
+                                </div>
+                                <button type="submit" class="register-btn rounded">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="register-pic">
+                            <img src="img/register-pic.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- Register Section End -->
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</x-site-layout>

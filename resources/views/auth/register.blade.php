@@ -67,7 +67,9 @@
                                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                     </div>
                                 </div>
-                                <button type="submit" class="register-btn">Get Started</button>
+                                <button type="submit" class="register-btn rounded">Get Started</button>
+                                <p>already have an account?</p>
+                                <a  class="register-btn rounded" href="{{ route('login') }}" style="padding-left: 35px; padding-right: 35px">Login</a>
                             </form>
                         </div>
                     </div>
