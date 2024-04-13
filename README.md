@@ -78,9 +78,10 @@ HomePages
         coaches #
         contact #
         about #
+        register #
+        profile #
 
         appointment
-        profile
         notifications
 
 Routes Roles

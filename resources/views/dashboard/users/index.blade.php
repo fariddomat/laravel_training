@@ -142,6 +142,13 @@
                                                         class="text-secondary text-xs font-weight-bold">{{ $user->created_at->diffForHumans() }}</span>
                                                 </td>
                                                 <td class="align-middle">
+                                                    <a rel="tooltip" class="btn btn-primary btn-link"
+                                                    href="{{ route('dashboard.users.show', $user) }}"
+                                                    data-original-title="" title="">
+                                                    <i class="material-icons">visibility</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+
                                                     <a rel="tooltip" class="btn btn-success btn-link"
                                                         href="{{ route('dashboard.users.edit', $user) }}"
                                                         data-original-title="" title="">
