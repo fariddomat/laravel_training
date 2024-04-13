@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Schedule;
 use App\Models\Train;
 use App\Models\User;
@@ -21,7 +22,6 @@ class SiteController extends Controller
     public function categories()
     {
         $categories = Category::all();
-        $schedules = Schedule::all();
 
 
         $schedules = Schedule::with('category')
@@ -55,11 +55,19 @@ class SiteController extends Controller
 
     public function about()
     {
-        return view('home.about');
+        $coaches = User::role('coach')->get();
+        return view('home.about',compact('coaches'));
     }
 
     public function contact()
     {
         return view('home.contact-us');
+    }
+
+    public function postContact(Request $request)
+    {
+        Contact::create($request->all());
+        return redirect()->route('home');
+
     }
 }

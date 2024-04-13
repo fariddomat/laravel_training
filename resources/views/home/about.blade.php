@@ -25,9 +25,6 @@
                 <div class="col-lg-6">
                     <div class="about-pic">
                         <img src="{{asset('home')}}/img/about-pic.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=SlPhMPnQ58k" class="play-btn video-popup">
-                            <img src="{{asset('home')}}/img/play.png" alt="">
-                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -57,20 +54,19 @@
                 <div class="col-lg-12">
                     <div class="about-counter-text">
                         <div class="single-counter">
-                            <h1 class="counter-num count">98</h1>
-                            <p>Programs</p>
+                            <h1 class="counter-num count">{{ App\Models\Category::count() }}</h1>
+                            <p>Categories</p>
                         </div>
                         <div class="single-counter">
-                            <h1 class="counter-num count">14</h1>
-                            <p>Locations</p>
+                            <h1 class="counter-num count">{{ App\Models\Train::count() }}</h1>
+                            <p>Traines</p>
                         </div>
                         <div class="single-counter">
-                            <h1 class="counter-num count">50</h1>
-                            <span>k+</span>
+                            <h1 class="counter-num count">{{ App\Models\User::role('trainee')->count() }}</h1>
                             <p>Members</p>
                         </div>
                         <div class="single-counter">
-                            <h1 class="counter-num count">34</h1>
+                            <h1 class="counter-num count">{{ $coaches->count() }}</h1>
                             <p>Coaches</p>
                         </div>
                     </div>
@@ -79,29 +75,6 @@
         </div>
     </div>
     <!-- About Counter Section End -->
-
-    <!-- Gym Award Section Begin -->
-    <section class="gym-award spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="award-text">
-                        <h2>Best gym award</h2>
-                        <p>Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean pretium sollicitudin,
-                            nascetur auci elit consequat ipsutissem niuis sed odio sit amet nibh vulputate cursus a
-                            amet.</p>
-                        <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, gravida quam semper libero
-                            sit amet. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, gravida quam
-                            semper libero sit amet.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <img src="{{asset('home')}}/img/award.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Gym Award Section End -->
 
     <!-- Banner Section Begin -->
     <section class="banner-section set-bg" data-setbg="{{asset('home')}}/img/banner-bg.jpg">
@@ -112,7 +85,7 @@
                         <h2>Get training today</h2>
                         <p>Gimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                             industry’s standard.</p>
-                        <a href="#" class="primary-btn banner-btn">Contact Now</a>
+                        <a href="{{ route('contact') }}" class="primary-btn banner-btn">Contact Now</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -123,72 +96,33 @@
     </section>
     <!-- Banner Section End -->
 
-    <!-- Trainer Section Begin -->
-    <section class="trainer-section about-trainer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>EXPERT TRAINERS</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-trainer-item">
-                        <img src="{{asset('home')}}/img/trainer/about-trainer-1.jpg" alt="">
-                        <div class="trainer-text">
-                            <h5>Patrick Cortez</h5>
-                            <span>Leader</span>
-                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                voluptatem.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-trainer-item">
-                        <img src="{{asset('home')}}/img/trainer/about-trainer-2.jpg" alt="">
-                        <div class="trainer-text">
-                            <h5>Gregory Powers</h5>
-                            <span>Gym coach</span>
-                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                voluptatem.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-trainer-item">
-                        <img src="{{asset('home')}}/img/trainer/about-trainer-3.jpg" alt="">
-                        <div class="trainer-text">
-                            <h5>Walter Wagner</h5>
-                            <span>Dance trainer</span>
-                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                voluptatem.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Trainer Section Begin-->
+  <section class="trainer-section  about-trainer spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>EXPERT COACHES</h2>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Trainer Section End -->
+        <div class="row">
+            @foreach ($coaches as $user)
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{{ asset($user->image) }}" alt="">
+                        <div class="trainer-text">
+                            <h5>{{ $user->name }}</h5>
+                            <span>{{ $user->email }}</span>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+<!-- Trainer Section End -->
 
 </x-site-layout>
 

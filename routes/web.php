@@ -23,6 +23,7 @@ Route::get('/trains', [SiteController::class, 'trains'])->name('trains');
 Route::get('/trains/{id}', [SiteController::class, 'train'])->name('trains.show');
 Route::get('/about', [SiteController::class, 'about'])->name('about');
 Route::get('/contact-us', [SiteController::class, 'contact'])->name('contact');
+Route::post('/postContact', [SiteController::class, 'postContact'])->name('postContact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,6 +45,8 @@ Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->grou
     Route::resource('trains', Dashboard\TrainController::class);
     Route::resource('trains.medias', Dashboard\TrainMediaController::class);
     Route::resource('schedules', Dashboard\ScheduleController::class);
+    Route::get('/contact', [Dashboard\HomeController::class, 'contact'])->name('contact');
+
 });
 
 require __DIR__ . '/auth.php';
