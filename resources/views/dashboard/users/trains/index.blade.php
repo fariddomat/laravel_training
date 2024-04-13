@@ -111,7 +111,7 @@
                                                 duration</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                notes</th>
+                                                status</th>
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
@@ -164,7 +164,7 @@
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
                                                         <div>
-                                                            {{ $userTrain->notes }}
+                                                            {{ $userTrain->status }}
                                                         </div>
 
                                                     </div>

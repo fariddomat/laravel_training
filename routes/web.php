@@ -35,12 +35,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/updateInfo', [ProfileController::class, 'updateInfo'])->name('profile.updateInfo');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
+
+    Route::resource('usersTrain', Dashboard\UserTrainController::class);
+
+});
 Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->group(function () {
     // Routes accessible only to admins
 
     Route::resource('users', Dashboard\UserController::class);
-    Route::resource('usersTrain', Dashboard\UserTrainController::class);
     Route::resource('muscles', Dashboard\MuscleController::class);
     Route::resource('categories', Dashboard\CategoryController::class);
     Route::resource('trains', Dashboard\TrainController::class);
@@ -49,5 +53,6 @@ Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->grou
     Route::get('/contact', [Dashboard\HomeController::class, 'contact'])->name('contact');
 
 });
+
 
 require __DIR__ . '/auth.php';

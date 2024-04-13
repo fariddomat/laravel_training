@@ -21,10 +21,11 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            @if (auth()->user()->hasRole('admin'))
+
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Users</h6>
                 </li>
+                @if (auth()->user()->hasRole('admin'))
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Route::currentRouteName() == 'users.index' ? ' active bg-gradient-primary' : '' }}"
                         href="{{ route('dashboard.users.index') }}">
@@ -34,6 +35,7 @@
                         <span class="nav-link-text ms-1">Users</span>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Route::currentRouteName() == 'usersTrain.index' ? ' active bg-gradient-primary' : '' }}"
                         href="{{ route('dashboard.usersTrain.index') }}">
@@ -43,7 +45,7 @@
                         <span class="nav-link-text ms-1">Training Management</span>
                     </a>
                 </li>
-            @endif
+
 
             @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('coach'))
                 <li class="nav-item mt-3">

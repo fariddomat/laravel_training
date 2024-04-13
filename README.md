@@ -79,6 +79,8 @@ HomePages
         contact #
         about #
         register #
+            add Role to register #
+        login #
         profile #
 
         appointment

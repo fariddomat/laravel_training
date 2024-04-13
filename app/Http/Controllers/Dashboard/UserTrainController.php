@@ -19,7 +19,16 @@ class UserTrainController extends Controller
      */
     public function index()
     {
-        $userTrains = UserTrain::with(['user', 'train'])->paginate(10);
+        if (auth()->user()->hasRole('trainee')) {
+            $userTrains = UserTrain::with(['user', 'train', 'train.category'])->where('user_id', auth()->id())->paginate(10);
+        } elseif (auth()->user()->hasRole('coach')) {
+            $userTrains = UserTrain::with(['user', 'train', 'train.category'])->whereHas('train.category', function ($query) {
+                $query->where('user_id', auth()->id()); // Filter categories by user_id
+            })->paginate(10);
+        } else {
+            $userTrains = UserTrain::with(['user', 'train'])->paginate(10);
+        }
+
         return view('dashboard.users.trains.index', compact('userTrains'));
     }
 
@@ -58,7 +67,7 @@ class UserTrainController extends Controller
 
         $userTrain = UserTrain::create($request->all());
 
-        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record created successfully!');
+        return redirect()->route('dashboard.usersTrain.index')->with('success', 'User Train record created successfully!');
     }
 
     /**
@@ -109,7 +118,7 @@ class UserTrainController extends Controller
 
         $usersTrain->update($request->all());
 
-        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record updated successfully!');
+        return redirect()->route('dashboard.usersTrain.index')->with('success', 'User Train record updated successfully!');
     }
 
     /**
@@ -121,6 +130,6 @@ class UserTrainController extends Controller
     public function destroy(UserTrain $userTrain)
     {
         $userTrain->delete();
-        return redirect()->route('dashboard.userTrains.index')->with('success', 'User Train record deleted successfully!');
+        return redirect()->route('dashboard.usersTrain.index')->with('success', 'User Train record deleted successfully!');
     }
 }

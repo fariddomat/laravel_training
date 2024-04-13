@@ -27,4 +27,9 @@ class UserTrain extends Model
     {
         return $this->belongsTo(Train::class);
     }
+
+    public function category() {
+
+        return $this->belongsTo(Category::class, 'trains');
+    }
 }
