@@ -70,7 +70,18 @@ musclesmedia #
 
 HomePages
     Welcome
-        introl
-        categories
-        coaches
+        intro #
+        categories #
+        category #
+        trains #
+        train #
+        coaches #
+        contact #
+        about #
+
+        appointment
+        profile
+        notifications
+
+Routes Roles
 
