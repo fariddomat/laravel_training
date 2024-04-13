@@ -82,9 +82,7 @@ HomePages
             add Role to register #
         login #
         profile #
-
-        appointment
-        notifications
+        appointment #
 
 Routes Roles #
 

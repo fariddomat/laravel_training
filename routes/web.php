@@ -39,7 +39,9 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
 
 
     Route::resource('usersTrain', Dashboard\UserTrainController::class);
+    Route::get('/suggestion', [Dashboard\HomeController::class, 'suggestion'])->name('suggestion');
 
+    // suggestion
 });
 Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->group(function () {
     // Routes accessible only to admins
