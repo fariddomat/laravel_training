@@ -72,6 +72,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                        $categories;
+                                            if (auth()->user()->hasRole('coach')) {
+                                                $categories = auth()->user()->categories;
+                                            }
+                                        @endphp
                                         @foreach ($categories as $index => $category)
                                             <tr>
                                                 <td>

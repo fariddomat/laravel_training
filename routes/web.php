@@ -47,14 +47,19 @@ Route::middleware(['role:admin'])->prefix('dashboard')->name('dashboard.')->grou
     // Routes accessible only to admins
 
     Route::resource('users', Dashboard\UserController::class);
+    Route::get('/contact', [Dashboard\HomeController::class, 'contact'])->name('contact');
+
+});
+
+Route::middleware(['role:admin||coach'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    // Routes accessible to admins and coach
+
     Route::resource('muscles', Dashboard\MuscleController::class);
     Route::resource('categories', Dashboard\CategoryController::class);
     Route::resource('trains', Dashboard\TrainController::class);
     Route::resource('trains.medias', Dashboard\TrainMediaController::class);
     Route::resource('schedules', Dashboard\ScheduleController::class);
-    Route::get('/contact', [Dashboard\HomeController::class, 'contact'])->name('contact');
 
 });
-
 
 require __DIR__ . '/auth.php';

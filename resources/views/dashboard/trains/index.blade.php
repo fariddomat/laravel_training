@@ -70,77 +70,155 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($trains as $index => $train)
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
+                                        @if (auth()->user()->hasRole('coach'))
+                                        @foreach (auth()->user()->categories as $category)
+                                        @foreach ($category->trains as $index => $train)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
 
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $index + 1 }}</h6>
-                                                        </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ $index + 1 }}</h6>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                        {{ $train->muscle->name }}
-                                                        </div>
-
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->muscle->name }}
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                        {{ $train->category->name }}
-                                                        </div>
 
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->category->name }}
                                                     </div>
-                                                </td>
 
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
+                                                </div>
+                                            </td>
 
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $train->title }}</h6>
-                                                        </div>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ $train->title }}</h6>
                                                     </div>
-                                                </td>
+                                                </div>
+                                            </td>
 
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                        {{ $train->level }}
-                                                        </div>
-
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->level }}
                                                     </div>
-                                                </td>
 
-                                                <td class="align-middle">
-                                                    <a rel="tooltip" class="btn btn-primary btn-link"
-                                                        href="{{ route('dashboard.trains.medias.index', $train) }}" data-original-title=""
-                                                        title="">
-                                                        <i class="material-icons">camera</i>
+                                                </div>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <a rel="tooltip" class="btn btn-primary btn-link"
+                                                    href="{{ route('dashboard.trains.medias.index', $train) }}" data-original-title=""
+                                                    title="">
+                                                    <i class="material-icons">camera</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                                <a rel="tooltip" class="btn btn-success btn-link"
+                                                    href="{{ route('dashboard.trains.edit', $train) }}" data-original-title=""
+                                                    title="">
+                                                    <i class="material-icons">edit</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+
+                                                <form action="{{ route('dashboard.trains.destroy', $train) }}" method="POST"
+                                                    style="  display: unset;">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger btn-link">
+                                                        <i class="material-icons">close</i>
                                                         <div class="ripple-container"></div>
-                                                    </a>
-                                                    <a rel="tooltip" class="btn btn-success btn-link"
-                                                        href="{{ route('dashboard.trains.edit', $train) }}" data-original-title=""
-                                                        title="">
-                                                        <i class="material-icons">edit</i>
-                                                        <div class="ripple-container"></div>
-                                                    </a>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                                                    <form action="{{ route('dashboard.trains.destroy', $train) }}" method="POST"
-                                                        style="  display: unset;">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger btn-link">
-                                                            <i class="material-icons">close</i>
-                                                            <div class="ripple-container"></div>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
                                         @endforeach
+                                        @else
+                                        @foreach ($trains as $index => $train)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ $index + 1 }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->muscle->name }}
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->category->name }}
+                                                    </div>
+
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ $train->title }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                    {{ $train->level }}
+                                                    </div>
+
+                                                </div>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <a rel="tooltip" class="btn btn-primary btn-link"
+                                                    href="{{ route('dashboard.trains.medias.index', $train) }}" data-original-title=""
+                                                    title="">
+                                                    <i class="material-icons">camera</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                                <a rel="tooltip" class="btn btn-success btn-link"
+                                                    href="{{ route('dashboard.trains.edit', $train) }}" data-original-title=""
+                                                    title="">
+                                                    <i class="material-icons">edit</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+
+                                                <form action="{{ route('dashboard.trains.destroy', $train) }}" method="POST"
+                                                    style="  display: unset;">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger btn-link">
+                                                        <i class="material-icons">close</i>
+                                                        <div class="ripple-container"></div>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                        @endif
 
                                     </tbody>
                                 </table>

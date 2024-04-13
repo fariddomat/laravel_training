@@ -30,7 +30,28 @@
                                     @enderror
                                 </div>
                             </div>
+                            @if (auth()->user()->hasRole('coach'))
+                            <div class="form-group row">
+                                <label for="category_id" class="col-md-4 col-form-label text-md-right">Category</label>
 
+                                <div class="mb-3 col-md-6">
+                                    <select id="category_id" class="form-control border border-2 p-2 @error('category_id') is-invalid @enderror" name="category_id" required>
+                                        <option value="">Select Category</option>
+                                        @foreach(auth()->user()->categories as $category)
+                                            <option value="{{ $category->id }}" @if ($train->category_id ==$category->id)
+                                                selected
+                                            @endif>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('category_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            @else
                             <div class="form-group row">
                                 <label for="category_id" class="col-md-4 col-form-label text-md-right">Category</label>
 
@@ -51,7 +72,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            @endif
                             <div class="form-group row">
                                 <label for="level" class="col-md-4 col-form-label text-md-right">Level</label>
 

@@ -14,6 +14,18 @@
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>
+                        @if (auth()->user()->hasRole('coach'))
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Coach</label>
+                            <select name="user_id" class="form-control  border border-2 p-2">
+                                @
+                                    <option value="{{ auth()->user()->id }}">{{ auth()->user()->name }}</option>
+                            </select>
+                            @error('user_id')
+                                <p class='text-danger inputerror'>{{ $message }} </p>
+                            @enderror
+                        </div>
+                        @else
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Coach</label>
                             <select name="user_id" class="form-control  border border-2 p-2">
@@ -27,6 +39,8 @@
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>
+                        @endif
+
                         <div class="mb-3 col-md-12">
 
                             <label class="form-label">Image</label>

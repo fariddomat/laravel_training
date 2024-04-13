@@ -6,6 +6,21 @@
                     @csrf
                     <div class="row">
 
+                        @if (auth()->user()->hasRole('coach'))
+
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Category</label>
+                            <select name="category_id" class="form-control  border border-2 p-2">
+                                @foreach (auth()->user()->categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <p class='text-danger inputerror'>{{ $message }} </p>
+                            @enderror
+                        </div>
+                        @else
+
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Category</label>
                             <select name="category_id" class="form-control  border border-2 p-2">
@@ -17,6 +32,7 @@
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>
+                        @endif
 
 
                         <div class="mb-3 col-md-6">

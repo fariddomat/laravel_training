@@ -36,24 +36,48 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($schedules as $schedule)
-                                    <tr>
-                                        <td>{{ $schedule->id }}</td>
-                                        <td>{{ $schedule->category->name }}</td>
-                                        <td>{{ $schedule->day_of_week }}</td>
-                                        <td>{{ $schedule->start_time }}</td>
-                                        <td>{{ $schedule->end_time }}</td>
-                                        <td>{{ $schedule->category->user->name ?? 'N/A' }}</td>
-                                        <td>
-                                            <form action="{{ route('dashboard.schedules.destroy', $schedule) }}"
-                                                method="POST" style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @if (auth()->user()->hasRole('coach'))
+                                    @foreach (auth()->user()->categories as $category)
+                                        @foreach ($category->schedules as $schedule)
+                                            <tr>
+                                                <td>{{ $schedule->id }}</td>
+                                                <td>{{ $schedule->category->name }}</td>
+                                                <td>{{ $schedule->day_of_week }}</td>
+                                                <td>{{ $schedule->start_time }}</td>
+                                                <td>{{ $schedule->end_time }}</td>
+                                                <td>{{ $schedule->category->user->name ?? 'N/A' }}</td>
+                                                <td>
+                                                    <form action="{{ route('dashboard.schedules.destroy', $schedule) }}"
+                                                        method="POST" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-sm btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
+                                @else
+                                    @foreach ($schedules as $schedule)
+                                        <tr>
+                                            <td>{{ $schedule->id }}</td>
+                                            <td>{{ $schedule->category->name }}</td>
+                                            <td>{{ $schedule->day_of_week }}</td>
+                                            <td>{{ $schedule->start_time }}</td>
+                                            <td>{{ $schedule->end_time }}</td>
+                                            <td>{{ $schedule->category->user->name ?? 'N/A' }}</td>
+                                            <td>
+                                                <form action="{{ route('dashboard.schedules.destroy', $schedule) }}"
+                                                    method="POST" style="display: inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>

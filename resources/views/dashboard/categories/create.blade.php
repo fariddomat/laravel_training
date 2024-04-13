@@ -13,16 +13,28 @@
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                             @enderror
                         </div>
-                        <div class="mb-3 col-md-6">
-                            <label class="form-label">Coach</label>
-                            <select name="role_id" class="form-control  border border-2 p-2">
-                                @foreach (App\Models\User::role('coach')->get() as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('role_id')
-                                <p class='text-danger inputerror'>{{ $message }} </p>
-                            @enderror
+                     @if (auth()->user()->hasRole('coach'))
+                     <div class="mb-3 col-md-6">
+                        <label class="form-label">Coach</label>
+                        <select name="role_id" class="form-control  border border-2 p-2">
+                                <option value="{{ auth()->user()->id }}">{{ auth()->user()->name }}</option>
+
+                        </select>
+                        @error('role_id')
+                            <p class='text-danger inputerror'>{{ $message }} </p>
+                        @enderror
+                     @else
+                     <div class="mb-3 col-md-6">
+                        <label class="form-label">Coach</label>
+                        <select name="role_id" class="form-control  border border-2 p-2">
+                            @foreach (App\Models\User::role('coach')->get() as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('role_id')
+                            <p class='text-danger inputerror'>{{ $message }} </p>
+                        @enderror
+                     @endif
                         </div>
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Image</label>
