@@ -44,8 +44,14 @@ class SiteController extends Controller
     public function trains(){
         $trains=Train::with(['category', 'muscle'])->get();
         return view('home.trains', compact('trains'));
-
     }
+
+    public function train($id)
+    {
+        $train = Train::findOrFail($id);
+        return view('home.train', compact('train'));
+    }
+
 
     public function about()
     {

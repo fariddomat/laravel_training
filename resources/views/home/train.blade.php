@@ -26,15 +26,35 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>UNLIMITED Trains</h2>
+                        <h2>{{ $train->title }}</h2>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Category: {{ $train->category->name }} ||
+                <span style="color: gold;">Trainer: {{ $train->category->user->name }} </span> ||
+                <span>Muscle: {{ $train->muscle->name }}</span></h3>
+                <h3 style="color: green; padding: 2rem 0">Level: {{ $train->level }}</h3>
+                <p>Description: {{ $train->description }}</p>
+                <span>Goal: {{ $train->goal }}</span>
+            </div>
+        </div>
+        </div>
+        @if ($train->media->count() > 0)
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>media</h2>
                     </div>
                 </div>
             </div>
             <div class="row classes-slider owl-carousel">
-                @foreach ($trains as $train)
+                @foreach ($train->media as $media)
                     <div class="col-lg-4">
-                        <a href="{{ route('trains.show', $train) }}">
-                            <div class="single-class-item set-bg" data-setbg="{{ asset('home/img/ico.png') }}">
+                        <a>
+                            <div class="single-class-item set-bg" data-setbg="{{ asset($media->media_path) }}">
                                 <div class="si-text">
                                     <h4>{{ $train->title }}</h4>
                                     <span>Level {{ $train->level }}</span>
@@ -46,6 +66,7 @@
 
             </div>
         </div>
+        @endif
     </section>
     <!-- Classes Section End -->
 

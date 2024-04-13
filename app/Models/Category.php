@@ -26,4 +26,9 @@ class Category extends Model
         return $this->hasMany(Schedule::class);
     }
 
+    public function muscles()
+    {
+        return $this->belongsToMany(Muscle::class,'trains');
+    }
+
 }

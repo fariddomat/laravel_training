@@ -15,7 +15,6 @@ class Train extends Model
         'title',
         'description',
         'goal',
-        'days_of_week'
     ];
 
     public function muscle()

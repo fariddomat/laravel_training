@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Classes</h2>
+                        <h2>Categories</h2>
                         <div class="breadcrumb-option">
-                            <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                            <span>Class</span>
+                            <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a>
+                            <span>categories</span>
                         </div>
                     </div>
                 </div>
@@ -19,53 +19,6 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-    @guest
-        <!-- Register Section Begin -->
-        <section class="register-section classes-page spad">
-            <div class="container">
-                <div class="classes-page-text">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="register-text">
-                                <div class="section-title">
-                                    <h2>Register Now</h2>
-                                    <p>The First 7 Day Trial Is Completely Free With The Teacher</p>
-                                </div>
-                                <form action="#" class="register-form">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <label for="name">First Name</label>
-                                            <input type="text" id="name">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label for="email">Your email address</label>
-                                            <input type="text" id="email">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label for="last-name">Last Name</label>
-                                            <input type="text" id="last-name">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label for="mobile">Mobile No*</label>
-                                            <input type="text" id="mobile">
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="register-btn">Get Started</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="register-pic">
-                                <img src="{{ asset('home') }}/img/register-pic.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Register Section End -->
-
-    @endguest
 
     <!-- Classes Section Begin -->
     <section class="classes-section spad">
