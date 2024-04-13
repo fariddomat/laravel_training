@@ -6,6 +6,7 @@ use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -58,7 +59,10 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user = User::create($request->except('image'));
+        $request_all=$request->except('image', 'password');
+        $request_all['password']=Hash::make($request->password);
+        //
+        $user = User::create($request_all);
         if ($request->has('image')) {
             $image = $request->file('image');
             $directory = '/uploads/users'; // Replace with the desired directory
@@ -109,7 +113,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id, // Ignore current user's email
-            'password' => 'nullable|string|min:8|confirmed',
+
             'gender' => 'nullable|in:male,female',
             'level' => 'nullable|string',
             'age' => 'nullable|integer|min:18',

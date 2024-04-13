@@ -26,7 +26,7 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="register-text">
                             <div class="section-title">
-                                <h2>Register Now</h2>
+                                <h2>Login Now</h2>
                             </div>
                             <form action="{{ route('login') }}" method="POST" class="register-form">
                                 @csrf
